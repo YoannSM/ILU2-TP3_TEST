@@ -34,5 +34,10 @@ class helloBobTest {
 		assertEquals(helloBob.hello("JERRY"),"HELLO, JERRY !");
 	}
 	
+	@Test
+	void gestionDeuxNoms() {
+		assertEquals(helloBob.hello("amy,bob"),"Hello, Amy,Bob");
+	}
+	
 
 }
