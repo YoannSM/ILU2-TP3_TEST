@@ -20,11 +20,13 @@ class helloBobTest {
 	void gestionNullandSpace() {
 		assertEquals(helloBob.hello(""),"Hello, my friend");
 	}
+	@Test
 	void gestionNullandSpace2() {
 		assertEquals(helloBob.hello("  "),"Hello, my friend");
 	}
+	@Test
 	void gestionNullandSpace3() {
-		assertEquals(helloBob.hello("       "),"Hello, my friend");
+		assertEquals(helloBob.hello("         "),"Hello, my friend");
 	}
 	
 
