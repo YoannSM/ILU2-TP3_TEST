@@ -6,8 +6,8 @@ public class helloBob {
 		String retour;
 		if(name.trim().equals(""))
 			return "Hello, my friend";
-		if(name.equals("JERRY"))
-			return "HELLO, JERRY !";
+		if(name.toUpperCase().equals(name))
+			return "HELLO, "+name+" !";
 		String nomMaj = name.substring(0,1).toUpperCase()+name.substring(1).toLowerCase();
 		return "Hello, "+nomMaj;
 	}
