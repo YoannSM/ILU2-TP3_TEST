@@ -29,5 +29,10 @@ class helloBobTest {
 		assertEquals(helloBob.hello("         "),"Hello, my friend");
 	}
 	
+	@Test
+	void gestionCri() {
+		assertEquals(helloBob.hello("JERRY"),"HELLO, JERRY !");
+	}
+	
 
 }
