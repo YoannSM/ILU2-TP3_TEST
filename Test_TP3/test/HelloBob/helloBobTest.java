@@ -13,7 +13,19 @@ class helloBobTest {
 	
 	@Test
 	void testHello2() {
-		
+		assertEquals(helloBob.hello("yoann"),"Hello, Yoann");
 	}
+	
+	@Test
+	void gestionNullandSpace() {
+		assertEquals(helloBob.hello(""),"Hello, my friend");
+	}
+	void gestionNullandSpace2() {
+		assertEquals(helloBob.hello("  "),"Hello, my friend");
+	}
+	void gestionNullandSpace3() {
+		assertEquals(helloBob.hello("       "),"Hello, my friend");
+	}
+	
 
 }
