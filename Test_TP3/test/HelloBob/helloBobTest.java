@@ -81,6 +81,11 @@ class helloBobTest {
 		assertEquals(helloBob.hello("Amy,BOB,Jerry,Adam"),"Hello, Amy, Jerry, Adam. AND HELLO,BOB !");
 	}
 	
+	@Test
+	void verifAnd() {
+		assertEquals(helloBob.helloAnd("Amy,BOB,Jerry,ADAM"),"Hello, Amy and Jerry. AND HELLO,BOB AND ADAM !");
+	}
+	
 	
 
 }
