@@ -86,6 +86,16 @@ class helloBobTest {
 		assertEquals(helloBob.helloAnd("Amy,BOB,Jerry,ADAM"),"Hello, Amy and Jerry. AND HELLO,BOB AND ADAM !");
 	}
 	
+	@Test
+	void verifListAndSpace() {
+		assertEquals(helloBob.helloAnd("Am    y,BO  B,    Je    rry,ADAM"),"Hello, Amy and Jerry. AND HELLO,BOB AND ADAM !");
+	}
+	
+	@Test
+	void verifAndSpace() {
+		assertEquals(helloBob.helloAnd("am   y ,     bob"),"Hello, Amy and Bob");
+	}
+	
 	
 
 }
