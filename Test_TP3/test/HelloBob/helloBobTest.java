@@ -53,12 +53,20 @@ class helloBobTest {
 	void gestionPlusieursNoms() {
 		assertEquals(helloBob.hello("amy,bob,jerry"),"Hello, Amy, Bob, Jerry");
 	}
+	@Test
 	void gestionPlusieursNomsSpace() {
 		assertEquals(helloBob.hello("a my,bob,jer ry"),"Hello, Amy, Bob, Jerry");
 	}
+	@Test
 	void gestionPlusieursNomsMajAndSpace() {
 		assertEquals(helloBob.hello("Amy,bob   ,jer ry"),"Hello, Amy, Bob, Jerry");
 	}
+	
+	@Test
+	void gestionSplitCri() {
+		assertEquals(helloBob.hello("Amy,BOB,Jerry"),"Hello, Amy, Jerry. AND HELLO,BOB !");
+	}
+	
 	
 
 }
