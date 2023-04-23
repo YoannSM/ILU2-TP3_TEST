@@ -66,6 +66,15 @@ class helloBobTest {
 	void gestionSplitCri() {
 		assertEquals(helloBob.hello("Amy,BOB,Jerry"),"Hello, Amy, Jerry. AND HELLO,BOB !");
 	}
+	@Test
+	void gestionSplitCri2() {
+		assertEquals(helloBob.hello("Amy,BOB,Jerry"),"Hello, Amy, Jerry. AND HELLO,BOB !");
+	}
+	
+	@Test
+	void gestionSplitCriSpace() {
+		assertEquals(helloBob.hello(" A my  ,B  OB,J  er ry"),"Hello, Amy, Jerry. AND HELLO,BOB !");
+	}
 	
 	
 

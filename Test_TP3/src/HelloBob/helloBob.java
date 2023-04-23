@@ -9,22 +9,24 @@ public class helloBob {
 			return "Hello, my friend";
 		if(name.toUpperCase().equals(name))
 			return "HELLO, "+name+" !";
-		if(name.equals("Amy,BOB,Jerry"))
-			return "Hello, Amy, Jerry. AND HELLO,BOB !";
 		if(name.contains(",")) {
 			String retour ="Hello, ";
 			String[] split = name.split(",");
 			for(String word : split) {
-				if(word.toUpperCase().equals(name)) {
+				if(word.toUpperCase().equals(word)) {
 					maj+=word;
 				}
+				else {
 				word = word.substring(0,1).toUpperCase()+word.substring(1).toLowerCase();
 				retour+= word+", ";
+				}
 		}
 		retour = retour.substring(0,retour.length()-2);
+		
 			if(maj.equals(". AND HELLO,")) 
 		return retour;
 			else
+				maj+= " !";
 				retour+= maj;
 			return retour;
 		
