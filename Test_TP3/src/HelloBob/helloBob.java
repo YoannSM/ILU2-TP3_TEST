@@ -73,4 +73,30 @@ public class helloBob {
 			retour+= maj;
 		return retour;
 }
+	
+	private static String cptNom(String name,String nom) {
+		name = name.replaceAll("\\s","");
+		 String[] noVirg = name.split(",");
+		 String[] tab = noVirg;
+		 int cpt = 0;
+		 for(String word : noVirg) {
+			 if(word.equals(nom)) {
+				 cpt++;
+			 }
+ 
+			 
+		 }
+		 if(cpt>0)
+		 return "("+cpt+"x)";
+		 else
+			 return "";
+	}
+	
+	public static void main(String[] args) {
+		String cpt = "Yoann, Yoann , Mec , MEC , YOANN , MEC ";
+		System.out.println(helloBob.cptNom(cpt,"Yoann"));
+		
+	
+
+}
 }
