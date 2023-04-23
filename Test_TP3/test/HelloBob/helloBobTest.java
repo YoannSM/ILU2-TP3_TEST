@@ -76,6 +76,11 @@ class helloBobTest {
 		assertEquals(helloBob.hello(" A my  ,B  OB,J  er ry"),"Hello, Amy, Jerry. AND HELLO,BOB !");
 	}
 	
+	@Test
+	void gestionSplitCriSpace3() {
+		assertEquals(helloBob.hello("Amy,BOB,Jerry,Adam"),"Hello, Amy, Jerry, Adam. AND HELLO,BOB !");
+	}
+	
 	
 
 }
