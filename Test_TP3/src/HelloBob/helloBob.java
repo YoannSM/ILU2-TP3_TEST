@@ -1,102 +1,124 @@
 package HelloBob;
 
 public class helloBob {
-	
-	public static Object hello(String name) {
-		name = name.replaceAll("\\s","");
-		if(name.trim().equals(""))
-			return "Hello, my friend";
-		if(name.toUpperCase().equals(name))
-			return "HELLO, "+name+" !";
-		if(name.contains(",")) {
-			return verifVirg(name);
-		}
-		String nomMaj = name.substring(0,1).toUpperCase()+name.substring(1).toLowerCase();
-		return "Hello, "+nomMaj;
-	}
-	
-	
-	private static String verifVirg(String name) {
-		String maj = ". AND HELLO,";
-		String retour ="Hello, ";
-		String[] split = name.split(",");
-		for(String word : split) {
-			if(word.toUpperCase().equals(word)) {
-				maj+=word;
-			}
-			else {
-			word = word.substring(0,1).toUpperCase()+word.substring(1).toLowerCase();
-			retour+= word+", ";
-			}
-	}
-	retour = retour.substring(0,retour.length()-2);
-		if(maj.equals(". AND HELLO,")) 
-	return retour;
-		else
-			maj+= " !";
-			retour+= maj;
-		return retour;
-	}
-	
-	public static Object helloAnd(String name) {
-		name = name.replaceAll("\\s","");
-		if(name.trim().equals(""))
-			return "Hello, my friend";
-		if(name.toUpperCase().equals(name))
-			return "HELLO, "+name+" !";
-		if(name.contains(",")) {
-			return verifVirgAnd(name);
-		}
-		String nomMaj = name.substring(0,1).toUpperCase()+name.substring(1).toLowerCase();
-		return "Hello, "+nomMaj;
-	}
-	
-	
 
-	private static String verifVirgAnd(String name) {
-		String maj = ". AND HELLO,";
-		String retour ="Hello, ";
+	public static Object hello(String name) {
+		name = name.replaceAll("\\s", "");
+		name = name.trim();
+		if (name.equals(""))
+			return "Hello, my friend";
+		if (name.toUpperCase().equals(name))
+			return "HELLO, " + name + " !";
+		if (name.contains(",")) {
+			if(!containMajName(name)) 
+				return bonjourMin(name);
+			if(!containMinName(name)) 
+				return bonjourMaj(name);
+			return bonjourMin(name)+" AND " +bonjourMaj(name);
+		}
+		String nomMaj = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
+		return "Hello, " + nomMaj;
+	}
+
+
+	
+	private static boolean containMajName(String name) {
+		if(cptTailleMaj(name)>0) {
+			return true;
+		}
+		return false;
+	}
+	
+	private static boolean containMinName(String name) {
+		if(cptTailleMin(name)>0) {
+			return true;
+		}
+		return false;
+	}
+
+	
+	private static int cptTailleMin(String name) {
+		int cpt = 0;
 		String[] split = name.split(",");
-		for(String word : split) {
-			if(word.toUpperCase().equals(word))
-				maj+=word + " AND ";
-			else {	
-			word = word.substring(0,1).toUpperCase()+word.substring(1).toLowerCase();
-			retour+= word+" and ";
+		for(String word : split) 
+			if (!(word.toUpperCase().equals(word)))
+					cpt++;
+		
+		return cpt;
+	}
+
+	private static int cptTailleMaj(String name) {
+		int cpt = 0;
+		String[] split = name.split(",");
+		for (String word : split) {
+			if (word.toUpperCase().equals(word)) {
+				cpt++;
 			}
+		}
+		return cpt;
 	}
-	retour = retour.substring(0,retour.length()-5);
-		if(maj.equals(". AND HELLO,")) 
-	return retour;
-			maj = maj.substring(0,maj.length()-4);
-			maj+= "!";
-			retour+= maj;
-		return retour;
-}
-	
-	private static String cptNom(String name,String nom) {
-		name = name.replaceAll("\\s","");
-		 String[] noVirg = name.split(",");
-		 String[] tab = noVirg;
-		 int cpt = 0;
-		 for(String word : noVirg) {
-			 if(word.equals(nom)) {
-				 cpt++;
-			 }
- 
-			 
-		 }
-		 if(cpt>0)
-		 return "("+cpt+"x)";
-		 else
-			 return "";
+
+	private static String bonjourMaj(String name) {
+		String retour = "HELLO";
+		String[] tabMaj = createMaj(name);
+		int cpt = cptTailleMaj(name);
+		if(tabMaj.length>1) {
+			for (int i = 0; i < cpt-1; i++) {
+				retour+= ","+tabMaj[i];
+			}
+			retour +=" AND "+tabMaj[cpt-1]+" !";
+			return retour;
+		}
+		else
+			return retour+","+tabMaj[0]+" !";
 	}
-	
-	public static void main(String[] args) {
-		String cpt = "Yoann, Yoann , Mec , MEC , YOANN , MEC ";
-		System.out.println(helloBob.cptNom(cpt,"Yoann"));
 		
 	
+	private static String[] createMaj(String name) {
+		String[] split = name.split(",");
+		int cptTaille = cptTailleMaj(name);
+		int cpt = 0;
+		String[] tabMaj = new String[cptTaille];
+		for(String word : split) {
+			if((word.toUpperCase().equals(word))) {
+				tabMaj[cpt] = word;
+				cpt ++;
+			}
 
-}
+		}
+		return tabMaj;
+	}
+	
+	private static String[] createMin(String name) {
+		String[] split = name.split(",");
+		int cptTaille = cptTailleMin(name);
+		int cpt = 0;
+		String[] tabMin = new String[cptTaille];
+		for(String word : split) {
+			if(!(word.toUpperCase().equals(word))) {
+				tabMin[cpt] =word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
+				cpt ++;
+			}
+
+		}
+		return tabMin;
+		
+	}
+	
+	
+	private static String bonjourMin(String name) {
+		String retour = "Hello";
+		String[] tabMin = createMin(name);
+		int cpt = cptTailleMin(name);
+		if(tabMin.length>1) {
+			for (int i = 0; i < cpt-1; i++) {
+				retour+=", "+ tabMin[i];
+			}
+			retour +=" and "+tabMin[cpt-1]+".";
+			return retour;
+		}
+		else
+			return retour+tabMin[0]+".";
+	}
+	
 }
