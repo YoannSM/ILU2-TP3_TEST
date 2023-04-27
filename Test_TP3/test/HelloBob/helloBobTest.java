@@ -36,7 +36,7 @@ class helloBobTest {
 	
 	@Test
 	void gestionCri() {
-		assertEquals(helloBob.hello("JERRY"),"HELLO, JERRY !");
+		assertEquals(helloBob.hello("JERRY"),"HELLO,JERRY !");
 	}
 	
 	@Test
@@ -45,8 +45,18 @@ class helloBobTest {
 	}
 	
 	@Test
+	void gestionDeuxNomsCri() {
+		assertEquals(helloBob.hello("JERRY,MAX"),"HELLO,JERRY AND MAX !");
+	}
+	
+	@Test
 	void gestionDeuxNomsSpace() {
 		assertEquals(helloBob.hello("  amy   ,  bob"),"Hello, Amy and Bob.");
+	}
+	
+	@Test
+	void gestionDeuxNomsCriSpace() {
+		assertEquals(helloBob.hello("J E R R Y       , M    A       X"),"HELLO,JERRY AND MAX !");
 	}
 	
 	@Test
@@ -83,7 +93,7 @@ class helloBobTest {
 	}
 	
 	@Test
-	void verifListAndSpace() {
+	void verifListAndSpace() { 
 		assertEquals(helloBob.hello("Am    y,BO  B,    Je    rry,ADAM"),"Hello, Amy and Jerry. AND HELLO,BOB AND ADAM !");
 	}
 	
@@ -103,8 +113,23 @@ class helloBobTest {
 	}
 	
 	@Test
-	void cpt() {
-		assertEquals(helloBob.hello("  ,  "),"Hello, my friend");
+	void helloYoda() {
+		assertEquals(helloBob.hello("bob, yoda, amy, JERRY"),"Bob, Yoda and Amy,Hello. AND HELLO,JERRY !");
+	}
+	
+	@Test
+	void helloYoda2() {
+		assertEquals(helloBob.hello("bob, YODA, amy, JERRY, YODA"),"Hello, Bob and Amy. AND ,YODA(X2) AND JERRY,HELLO !");
+	}
+	
+	@Test
+	void helloYoda3() {
+		assertEquals(helloBob.hello("bob , yoda , bob , amy, JERRY, amy , YODA, MIZ , JERRY"),"Bob(x2), Yoda and Amy(x2),Hello. AND ,JERRY(X2),YODA AND MIZ,HELLO !");
+	}
+	
+	@Test
+	void helloYoda4() {
+		assertEquals(helloBob.hello("b o b , y o d a , b o b  , aM y, J E R R Y, a m y    , YODA, MIZ , JERRY"),"Bob(x2), Yoda and Amy(x2),Hello. AND ,JERRY(X2),YODA AND MIZ,HELLO !");
 	}
 	
 	
