@@ -1,11 +1,11 @@
-package HelloBob;
+package welcome;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-public class helloBob {
+public class Welcome {
 
-	public static Object hello(String name) {
+	public static Object welcome(String name) {
 		name = name.replaceAll("\\s", "");
 		name = name.trim();
 		if (name.equals(""))
@@ -54,9 +54,7 @@ public class helloBob {
 		int cpt = 0;
 		String[] split = name.split(",");
 		for (String word : split) {
-			System.out.println(word);
 			if (!(word.toUpperCase().equals(word))) {
-				System.out.println(word+"....");
 				cpt++;
 		}
 		}
