@@ -92,6 +92,21 @@ class helloBobTest {
 		assertEquals(helloBob.hello("am   y ,     bob"),"Hello, Amy and Bob.");
 	}
 	
+	@Test
+	void cptNbFois(){
+		assertEquals(helloBob.hello("bob,JERRY,amy,bob,JERRY,PAUL,bob"),"Hello, Bob(x3) and Amy. AND HELLO,,JERRY(X2) AND PAUL !");
+	}
+	
+	@Test
+	void cptNbFoisv2() {
+		assertEquals(helloBob.hello("bob,B o b , b   o b ,JERRY , J E R R Y , PAUL, P A U L,e l e a"),"Hello, Bob(x3) and Elea. AND HELLO,,JERRY(X2) AND PAUL(X2) !");
+	}
+	
+	@Test
+	void cpt() {
+		assertEquals(helloBob.hello("  ,  "),"Hello, my friend");
+	}
+	
 	
 
 }
