@@ -160,14 +160,7 @@ public class helloBob {
 			return retour + tabMin[0] + ".";
 	}
 
-	private static int cptNom(String[] tab, String nom) {
-		int cpt = -1;
-		for (String word : tab) {
-			if (nom.equals(word))
-				cpt++;
-		}
-		return cpt;
-	}
+
 
 	private static boolean verifDoublons(String name) {
 		String[] split = concatTab(name); // Passage du string en tableau
@@ -223,35 +216,7 @@ public class helloBob {
 		return retour;
 	}
 
-	private static String reverseMin(String nom) {
-		String[] min = createMin(nom);
-		int j = min.length - 1;
-		String temp;
-		String minStr = "";
-		for (String word : min)
-			minStr += word + ",";
-		minStr = bonjourMin(minStr);
-		minStr = minStr.substring(7);
-		minStr = minStr.substring(0, minStr.length() - 1);
-		minStr += ",Hello.";
-		return minStr;
-	}
 
-	private static String reverseMaj(String nom) {
-		String[] maj = createMaj(nom);
-		int j = maj.length - 1;
-		String majStr = "";
-		for (String word : maj) {
-			majStr += word + ",";
-		}
-		majStr = bonjourMaj(majStr);
-		majStr = majStr.substring(6);
-		majStr = majStr.substring(0,majStr.length()-1);
-		majStr+= ",HELLO.";
-		return majStr;
-
-	}
-	
 	
 	private static boolean hasYoda(String nom) {
 		nom = nom.trim();
@@ -327,8 +292,4 @@ public class helloBob {
 		
 	}
 
-	public static void main(String[] args) {
-		String cpt = "MAX,JERRY";
-		System.out.println(hello(cpt));
-	}
 }

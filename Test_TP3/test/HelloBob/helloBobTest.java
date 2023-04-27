@@ -132,6 +132,10 @@ class helloBobTest {
 		assertEquals(helloBob.hello("b o b , y o d a , b o b  , aM y, J E R R Y, a m y    , YODA, MIZ , JERRY"),"Bob(x2), Yoda and Amy(x2),Hello. AND ,JERRY(X2),YODA AND MIZ,HELLO !");
 	}
 	
+	@Test
+	void helloYoda5() {
+		assertEquals(helloBob.hello("bob , yoda ,Yoda, amy , elea , elea , YODA , JERRY, bob , MAX , FABRICE , MArtin"),"Bob(x2), Yoda(x2), Amy, Elea(x2) and Martin,Hello. AND ,YODA,JERRY,MAX AND FABRICE,HELLO !");
+	}
 	
 
 }
